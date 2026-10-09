@@ -3,39 +3,415 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gokozoo — Assistance</title>
+<title>Assistance — Gokozoo</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; color: #1c1c1e; line-height: 1.6; background:#fff; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 24px 20px 80px; color: #1c1c1e; line-height: 1.6; background:#fff; }
   h1 { font-size: 28px; margin-bottom: 4px; }
   .subtitle { color: #6e6e73; font-size: 15px; margin-bottom: 32px; }
   h2 { font-size: 20px; margin-top: 32px; }
   .contact { background:#f5f5f7; border-radius:12px; padding:16px 20px; margin-top:16px; }
+  .muted { color:#6e6e73; font-size: 14px; }
   a { color: #0066cc; }
-  .faq dt { font-weight: 600; margin-top: 16px; }
-  .faq dd { margin: 4px 0 0; color: #3a3a3c; }
+  .langs { display:flex; flex-wrap:wrap; gap:6px; margin-bottom: 20px; }
+  .langs button { font: inherit; font-size: 13px; border: 1px solid #d2d2d7; background: #fff; color: #1c1c1e; border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+  .langs button[aria-pressed="true"] { background: #1c1c1e; color: #fff; border-color: #1c1c1e; }
+  details { border-bottom: 1px solid #e5e5ea; padding: 4px 0; }
+  summary { font-weight: 600; padding: 10px 0; cursor: pointer; }
+  details p, details ul { margin: 0 0 12px; color: #3a3a3c; }
+  details li { margin-bottom: 8px; }
+  [hidden] { display: none !important; }
+  @media (prefers-color-scheme: dark) {
+    body { background:#000; color:#f2f2f7; }
+    .subtitle, .muted { color:#98989d; }
+    .contact { background:#1c1c1e; }
+    a { color:#4da3ff; }
+    details { border-color:#38383a; }
+    details p, details ul { color:#d1d1d6; }
+    .langs button { background:#1c1c1e; color:#f2f2f7; border-color:#38383a; }
+    .langs button[aria-pressed="true"] { background:#f2f2f7; color:#000; }
+  }
 </style>
 </head>
 <body>
-  <h1>Assistance — Gokozoo</h1>
-  <p class="subtitle">Le compagnon santé de vos chats et chiens</p>
-
-  <h2>Besoin d'aide ?</h2>
-  <div class="contact">
-    Contactez-nous directement par e-mail :<br>
-    <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a><br>
-    Nous répondons généralement sous 48h.
+  <nav class="langs" aria-label="Langue / Language">
+    <button type="button" data-lang="fr">Français</button>
+    <button type="button" data-lang="en">English</button>
+    <button type="button" data-lang="de">Deutsch</button>
+    <button type="button" data-lang="es">Español</button>
+    <button type="button" data-lang="pt-PT">Português (Portugal)</button>
+    <button type="button" data-lang="pt-BR">Português (Brasil)</button>
+  </nav>
+  <div class="lang" lang="fr" data-title="Assistance — Gokozoo">
+    <h1>Assistance — Gokozoo</h1>
+    <p class="subtitle">Le compagnon santé de vos chats et chiens</p>
+    <h2>Besoin d'aide ?</h2>
+    <div class="contact">
+      Contactez-nous directement par e-mail :<br>
+      <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a><br>
+      <span class="muted">Nous répondons généralement sous 48 h.</span>
+    </div>
+    <h2 class="faq-title" id="faq">Questions fréquentes</h2>
+    <div class="faq">
+      <details>
+        <summary>Comment ajouter le profil de mon chat ou de mon chien ?</summary>
+        <p>Au premier lancement de l'app, vous êtes invité à créer le profil de votre animal (nom, espèce, race, date de naissance). Vous pouvez ensuite compléter son carnet de santé (poids, traitements, vétérinaire habituel) à tout moment, et ajouter d'autres animaux depuis le tableau de bord.</p>
+      </details>
+      <details>
+        <summary>Que faire en cas d'urgence avec mon animal ?</summary>
+        <p>Le bouton rouge « URGENCES », toujours visible, ouvre des fiches de premiers secours claires et détaillées (brûlure, intoxication, chute, arrêt cardiaque…). Il donne aussi un accès direct pour appeler votre vétérinaire ou le vétérinaire de garde, trouver le vétérinaire le plus proche ou obtenir l'itinéraire.</p>
+      </details>
+      <details>
+        <summary>Pourquoi renseigner les horaires de mon vétérinaire et un vétérinaire de garde ?</summary>
+        <p>Une urgence arrive rarement au bon moment : la nuit, le week-end, un jour férié. Si les horaires de votre vétérinaire sont renseignés, Gokozoo indique dans l'écran Urgences s'il est « Ouvert » ou « Fermé ». Quand il semble fermé, l'app vous propose directement votre vétérinaire de garde, avec son numéro et l'itinéraire.</p>
+        <p>Le faire <strong>en amont</strong>, à tête reposée, vous évite de chercher en pleine panique un vétérinaire ouvert à 2 h du matin, alors que chaque minute compte. Prenez quelques minutes aujourd'hui pour noter les horaires de votre vétérinaire et repérer le vétérinaire de garde près de chez vous : le jour où vous en aurez besoin, tout sera déjà prêt.</p>
+      </details>
+      <details>
+        <summary>Comment indiquer des horaires qui passent minuit ou durent plusieurs jours ?</summary>
+<ul><li><strong>Créneau de nuit</strong> (par exemple ouvert de 19h00 à 8h00 le lendemain matin) : indiquez simplement 19h00 → 08h00. L'app comprend qu'il s'agit d'une nuit et affiche « Ouvert » jusqu'à 8h00 le lendemain.</li><li><strong>Ouverture continue sur plusieurs jours</strong> (par exemple du vendredi soir au lundi matin sans interruption) : le vendredi, 19h00 → 23h59 ; les journées entièrement couvertes (samedi, dimanche), 00h00 → 23h59, c'est-à-dire « ouvert toute la journée » ; le lundi, 00h00 jusqu'à l'heure réelle de fermeture. S'il rouvre plus tard dans la journée, ajoutez un second créneau avec « Ajouter une coupure ».</li><li><strong>Ouvert la nuit et les jours fériés</strong> : à la question « Votre vétérinaire assure-t-il les urgences de nuit et les jours fériés ? », répondez « Oui ». Vous n'aurez alors pas besoin de renseigner un vétérinaire de garde séparé.</li></ul>
+        <p>Ces horaires servent à afficher « Ouvert » ou « Fermé » et le rappel « Votre vétérinaire semble fermé ». En cas de doute, appelez directement la clinique.</p>
+      </details>
+      <details>
+        <summary>Gokozoo fonctionne-t-elle sans connexion internet ?</summary>
+        <p>La quasi-totalité de l'app fonctionne hors ligne : vos données restent sur votre appareil. Une connexion est nécessaire seulement pour le scanner de plantes, le scanner de code-barres alimentaire et la recherche des vétérinaires à proximité.</p>
+      </details>
+      <details>
+        <summary>Mes données sont-elles envoyées quelque part ?</summary>
+        <p>Vos données ne sont <strong>jamais stockées sur nos serveurs</strong> : Gokozoo n'en a pas, et il n'y a pas de compte à créer. Elles restent sur votre appareil. Si vous activez la synchronisation entre vos appareils (Premium), elles sont copiées dans <strong>votre propre compte iCloud</strong>, géré par Apple, auquel nous n'avons pas accès. Tout le détail est dans la <a href="https://gokozooapp-png.github.io/gokozoo-legal/privacy.html">politique de confidentialité</a>.</p>
+      </details>
+      <details>
+        <summary>Comment supprimer les données d'un animal ?</summary>
+        <p>Depuis le tableau de bord de l'animal, le bouton « Supprimer cet animal » efface sa fiche et tout son carnet de santé. Désinstaller l'app supprime les données stockées sur l'appareil. Si la synchronisation iCloud est activée, une copie reste dans votre iCloud : vous pouvez la supprimer depuis les réglages iCloud de votre iPhone.</p>
+      </details>
+      <details>
+        <summary>Gokozoo est-elle payante ?</summary>
+        <p>L'application est gratuite : vous pouvez la télécharger et l'utiliser sans payer. Le carnet de santé, les urgences, les premiers secours, les rappels, l'éducation et les aliments dangereux sont inclus gratuitement, avec 1 animal et 3 scans de plantes par mois.</p>
+        <p>Certaines fonctions sont payantes avec <strong>Gokozoo Premium</strong> : animaux illimités, carnet de santé exportable en PDF, synchronisation entre vos appareils, courbes de poids, partage familial et scans de plantes illimités. Une partie des bénéfices est destinée à des associations de protection animale.</p>
+      </details>
+      <details>
+        <summary>Dans quelles langues l'app est-elle disponible ?</summary>
+        <p>Français, anglais, allemand, espagnol et portugais (Portugal et Brésil). L'app s'adapte automatiquement à la langue de votre iPhone.</p>
+      </details>
+      <details>
+        <summary>J'ai trouvé un bug ou une idée d'amélioration, comment vous le dire ?</summary>
+        <p>Écrivez à <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a> en décrivant ce que vous avez rencontré, idéalement avec une capture d'écran. Chaque retour est lu et pris en compte pour les prochaines mises à jour.</p>
+      </details>
+    </div>
   </div>
-
-    <h2 id="faq">Questions fréquentes</h2>
-  <dl class="faq">
-    <dt>Comment ajouter un animal ?</dt>
-    <dd>Depuis le tableau de bord, appuyez sur "Ajouter un animal" et suivez les étapes pour renseigner son profil.</dd>
-
-    <dt>Mes données sont-elles sauvegardées ?</dt>
-    <dd>Oui, les profils de vos animaux sont conservés sur votre appareil. Consultez notre <a href="./privacy.html">politique de confidentialité</a> pour plus de détails.</dd>
-
-    <dt>Comment signaler un bug ou suggérer une fonctionnalité ?</dt>
-    <dd>Envoyez-nous un e-mail avec une description du problème ou de votre idée, nous lisons tous les retours.</dd>
-  </dl>
+  <div class="lang" lang="en" data-title="Support — Gokozoo" hidden>
+    <h1>Support — Gokozoo</h1>
+    <p class="subtitle">The health companion for your cats and dogs</p>
+    <h2>Need help?</h2>
+    <div class="contact">
+      Contact us directly by email:<br>
+      <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a><br>
+      <span class="muted">We usually reply within 48 hours.</span>
+    </div>
+    <h2 class="faq-title">Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>How do I add my cat's or dog's profile?</summary>
+        <p>When you first open the app, you're invited to create your pet's profile (name, species, breed, date of birth). You can then complete its health record (weight, treatments, usual vet) at any time, and add more pets from the dashboard.</p>
+      </details>
+      <details>
+        <summary>What should I do in an emergency with my pet?</summary>
+        <p>The red “EMERGENCY” button, always visible, opens clear, detailed first aid guides (burns, poisoning, falls, cardiac arrest…). It also gives you direct access to call your vet or the on-call vet, find the nearest vet, or get directions.</p>
+      </details>
+      <details>
+        <summary>Why should I enter my vet's opening hours and an on-call vet?</summary>
+        <p>Emergencies rarely happen at a convenient time: at night, at the weekend, on a public holiday. If your vet's opening hours are filled in, Gokozoo shows on the Emergency screen whether it is “Open” or “Closed”. When it seems closed, the app directly suggests your on-call vet, with their phone number and directions.</p>
+        <p>Doing this <strong>ahead of time</strong>, with a clear head, saves you from searching in a panic for a vet that's open at 2 a.m., when every minute counts. Take a few minutes today to note your vet's opening hours and find the on-call vet near you: on the day you need it, everything will already be ready.</p>
+      </details>
+      <details>
+        <summary>How do I enter hours that go past midnight or span several days?</summary>
+<ul><li><strong>Overnight slot</strong> (for example open from 7:00 pm to 8:00 am the next morning): simply enter 19:00 → 08:00. The app understands it's an overnight slot and shows “Open” until 8:00 am the next day.</li><li><strong>Continuous opening over several days</strong> (for example from Friday evening to Monday morning without a break): on Friday, 19:00 → 23:59; on fully covered days (Saturday, Sunday), 00:00 → 23:59, meaning “open all day”; on Monday, 00:00 until the actual closing time. If it reopens later that day, add a second slot with “Add a break”.</li><li><strong>Open at night and on public holidays</strong>: to the question “Does your vet handle emergencies at night and on public holidays?”, answer “Yes”. You then won't need to enter a separate on-call vet.</li></ul>
+        <p>These hours are used to show “Open” or “Closed” and the “Your vet seems to be closed” reminder. If in doubt, call the clinic directly.</p>
+      </details>
+      <details>
+        <summary>Does Gokozoo work without an internet connection?</summary>
+        <p>Almost all of the app works offline: your data stays on your device. A connection is only needed for the plant scanner, the food barcode scanner and searching for nearby vets.</p>
+      </details>
+      <details>
+        <summary>Is my data sent anywhere?</summary>
+        <p>Your data is <strong>never stored on our servers</strong>: Gokozoo has none, and there's no account to create. It stays on your device. If you turn on syncing between your devices (Premium), it is copied to <strong>your own iCloud account</strong>, managed by Apple, which we have no access to. Full details are in the <a href="https://gokozooapp-png.github.io/gokozoo-legal/privacy.html">privacy policy</a>.</p>
+      </details>
+      <details>
+        <summary>How do I delete a pet's data?</summary>
+        <p>From the pet's dashboard, the “Delete this animal” button erases its profile and its entire health record. Uninstalling the app deletes the data stored on the device. If iCloud sync is turned on, a copy remains in your iCloud: you can delete it from your iPhone's iCloud settings.</p>
+      </details>
+      <details>
+        <summary>Is Gokozoo paid?</summary>
+        <p>The app is free: you can download and use it without paying. The health record, emergencies, first aid, reminders, training tips and dangerous foods are included for free, with 1 pet and 3 plant scans per month.</p>
+        <p>Some features are paid with <strong>Gokozoo Premium</strong>: unlimited pets, health record export to PDF, syncing between your devices, weight curves, Family Sharing and unlimited plant scans. Part of the profits goes to animal welfare associations.</p>
+      </details>
+      <details>
+        <summary>Which languages is the app available in?</summary>
+        <p>French, English, German, Spanish and Portuguese (Portugal and Brazil). The app automatically adapts to your iPhone's language.</p>
+      </details>
+      <details>
+        <summary>I found a bug or have an idea, how do I tell you?</summary>
+        <p>Write to <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a> describing what you came across, ideally with a screenshot. Every message is read and taken into account for future updates.</p>
+      </details>
+    </div>
+  </div>
+  <div class="lang" lang="de" data-title="Hilfe — Gokozoo" hidden>
+    <h1>Hilfe — Gokozoo</h1>
+    <p class="subtitle">Der Gesundheitsbegleiter für Ihre Katzen und Hunde</p>
+    <h2>Brauchen Sie Hilfe?</h2>
+    <div class="contact">
+      Schreiben Sie uns direkt per E-Mail:<br>
+      <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a><br>
+      <span class="muted">Wir antworten in der Regel innerhalb von 48 Stunden.</span>
+    </div>
+    <h2 class="faq-title">Häufige Fragen</h2>
+    <div class="faq">
+      <details>
+        <summary>Wie lege ich das Profil meiner Katze oder meines Hundes an?</summary>
+        <p>Beim ersten Start der App werden Sie gebeten, das Profil Ihres Tieres anzulegen (Name, Art, Rasse, Geburtsdatum). Danach können Sie seinen Gesundheitspass (Gewicht, Behandlungen, Haustierarzt) jederzeit ergänzen und weitere Tiere über die Übersicht hinzufügen.</p>
+      </details>
+      <details>
+        <summary>Was tun bei einem Notfall mit meinem Tier?</summary>
+        <p>Der rote Button „NOTFALL“, immer sichtbar, öffnet klare und ausführliche Erste-Hilfe-Anleitungen (Verbrennung, Vergiftung, Sturz, Herzstillstand…). Außerdem können Sie direkt Ihren Tierarzt oder den Bereitschaftstierarzt anrufen, den nächstgelegenen Tierarzt finden oder sich die Route anzeigen lassen.</p>
+      </details>
+      <details>
+        <summary>Warum sollte ich die Öffnungszeiten meines Tierarztes und einen Bereitschaftstierarzt eintragen?</summary>
+        <p>Ein Notfall kommt selten zur passenden Zeit: nachts, am Wochenende, an einem Feiertag. Wenn die Öffnungszeiten Ihres Tierarztes eingetragen sind, zeigt Gokozoo im Notfall-Bildschirm an, ob er „Geöffnet“ oder „Geschlossen“ ist. Scheint er geschlossen zu sein, schlägt Ihnen die App direkt Ihren Bereitschaftstierarzt vor, mit Telefonnummer und Route.</p>
+        <p>Wenn Sie das <strong>im Voraus</strong> und in Ruhe erledigen, müssen Sie nicht um 2 Uhr nachts in Panik nach einem geöffneten Tierarzt suchen, wenn jede Minute zählt. Nehmen Sie sich heute ein paar Minuten, um die Öffnungszeiten Ihres Tierarztes einzutragen und den Bereitschaftstierarzt in Ihrer Nähe herauszusuchen: An dem Tag, an dem Sie ihn brauchen, ist dann alles schon vorbereitet.</p>
+      </details>
+      <details>
+        <summary>Wie trage ich Öffnungszeiten ein, die über Mitternacht gehen oder mehrere Tage dauern?</summary>
+<ul><li><strong>Nachtzeit</strong> (zum Beispiel geöffnet von 19:00 bis 8:00 Uhr am nächsten Morgen): Tragen Sie einfach 19:00 → 08:00 ein. Die App erkennt, dass es sich um eine Nacht handelt, und zeigt bis 8:00 Uhr am nächsten Tag „Geöffnet“ an.</li><li><strong>Durchgehend geöffnet über mehrere Tage</strong> (zum Beispiel von Freitagabend bis Montagmorgen ohne Unterbrechung): am Freitag 19:00 → 23:59; an den vollständig abgedeckten Tagen (Samstag, Sonntag) 00:00 → 23:59, also „den ganzen Tag geöffnet“; am Montag 00:00 bis zur tatsächlichen Schließzeit. Öffnet er später am Tag wieder, fügen Sie mit „Pause hinzufügen“ einen zweiten Zeitraum hinzu.</li><li><strong>Nachts und an Feiertagen geöffnet</strong>: Beantworten Sie die Frage „Bietet dein Tierarzt einen Notdienst nachts und an Feiertagen an?“ mit „Ja“. Dann müssen Sie keinen separaten Bereitschaftstierarzt eintragen.</li></ul>
+        <p>Diese Öffnungszeiten dienen dazu, „Geöffnet“ oder „Geschlossen“ und den Hinweis „Ihr Tierarzt scheint geschlossen zu sein“ anzuzeigen. Rufen Sie im Zweifel direkt in der Praxis an.</p>
+      </details>
+      <details>
+        <summary>Funktioniert Gokozoo ohne Internetverbindung?</summary>
+        <p>Fast die gesamte App funktioniert offline: Ihre Daten bleiben auf Ihrem Gerät. Eine Verbindung ist nur für den Pflanzenscanner, den Barcode-Scanner für Lebensmittel und die Suche nach Tierärzten in der Nähe nötig.</p>
+      </details>
+      <details>
+        <summary>Werden meine Daten irgendwohin gesendet?</summary>
+        <p>Ihre Daten werden <strong>niemals auf unseren Servern gespeichert</strong>: Gokozoo hat keine, und Sie müssen kein Konto anlegen. Sie bleiben auf Ihrem Gerät. Wenn Sie die Synchronisierung zwischen Ihren Geräten aktivieren (Premium), werden sie in <strong>Ihr eigenes iCloud-Konto</strong> kopiert, das von Apple verwaltet wird und auf das wir keinen Zugriff haben. Alle Details finden Sie in der <a href="https://gokozooapp-png.github.io/gokozoo-legal/privacy.html">Datenschutzerklärung</a>.</p>
+      </details>
+      <details>
+        <summary>Wie lösche ich die Daten eines Tieres?</summary>
+        <p>In der Übersicht des Tieres löscht der Button „Dieses Tier löschen“ sein Profil und seinen gesamten Gesundheitspass. Wenn Sie die App deinstallieren, werden die auf dem Gerät gespeicherten Daten gelöscht. Ist die iCloud-Synchronisierung aktiviert, bleibt eine Kopie in Ihrer iCloud: Sie können sie in den iCloud-Einstellungen Ihres iPhones löschen.</p>
+      </details>
+      <details>
+        <summary>Ist Gokozoo kostenpflichtig?</summary>
+        <p>Die App ist kostenlos: Sie können sie herunterladen und nutzen, ohne zu bezahlen. Gesundheitspass, Notfall, Erste Hilfe, Erinnerungen, Erziehung und gefährliche Lebensmittel sind kostenlos enthalten, mit 1 Tier und 3 Pflanzenscans pro Monat.</p>
+        <p>Einige Funktionen sind mit <strong>Gokozoo Premium</strong> kostenpflichtig: unbegrenzt viele Tiere, Export des Gesundheitspasses als PDF, Synchronisierung zwischen Ihren Geräten, Gewichtskurven, Familienfreigabe und unbegrenzte Pflanzenscans. Ein Teil der Gewinne geht an Tierschutzvereine.</p>
+      </details>
+      <details>
+        <summary>In welchen Sprachen ist die App verfügbar?</summary>
+        <p>Französisch, Englisch, Deutsch, Spanisch und Portugiesisch (Portugal und Brasilien). Die App passt sich automatisch an die Sprache Ihres iPhones an.</p>
+      </details>
+      <details>
+        <summary>Ich habe einen Fehler gefunden oder eine Idee, wie kann ich sie Ihnen mitteilen?</summary>
+        <p>Schreiben Sie an <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a> und beschreiben Sie, was Ihnen aufgefallen ist, am besten mit einem Screenshot. Jede Nachricht wird gelesen und bei den nächsten Updates berücksichtigt.</p>
+      </details>
+    </div>
+  </div>
+  <div class="lang" lang="es" data-title="Ayuda — Gokozoo" hidden>
+    <h1>Ayuda — Gokozoo</h1>
+    <p class="subtitle">El compañero de salud de tus gatos y perros</p>
+    <h2>¿Necesitas ayuda?</h2>
+    <div class="contact">
+      Escríbenos directamente por correo electrónico:<br>
+      <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a><br>
+      <span class="muted">Solemos responder en un plazo de 48 horas.</span>
+    </div>
+    <h2 class="faq-title">Preguntas frecuentes</h2>
+    <div class="faq">
+      <details>
+        <summary>¿Cómo añado el perfil de mi gato o de mi perro?</summary>
+        <p>La primera vez que abres la app, se te invita a crear el perfil de tu animal (nombre, especie, raza, fecha de nacimiento). Después puedes completar su cartilla de salud (peso, tratamientos, veterinario habitual) en cualquier momento y añadir otros animales desde el panel.</p>
+      </details>
+      <details>
+        <summary>¿Qué hago en caso de urgencia con mi animal?</summary>
+        <p>El botón rojo «EMERGENCIA», siempre visible, abre fichas de primeros auxilios claras y detalladas (quemadura, intoxicación, caída, parada cardíaca…). También te da acceso directo para llamar a tu veterinario o al veterinario de guardia, encontrar el veterinario más cercano u obtener la ruta.</p>
+      </details>
+      <details>
+        <summary>¿Por qué indicar el horario de mi veterinario y un veterinario de guardia?</summary>
+        <p>Una urgencia rara vez llega en buen momento: de noche, el fin de semana, un día festivo. Si el horario de tu veterinario está indicado, Gokozoo muestra en la pantalla de Emergencia si está «Abierto» o «Cerrado». Cuando parece cerrado, la app te propone directamente tu veterinario de guardia, con su número y la ruta.</p>
+        <p>Hacerlo <strong>con antelación</strong>, con calma, te evita buscar en pleno pánico un veterinario abierto a las 2 de la madrugada, cuando cada minuto cuenta. Tómate unos minutos hoy para apuntar el horario de tu veterinario y localizar el veterinario de guardia cerca de tu casa: el día que lo necesites, todo estará listo.</p>
+      </details>
+      <details>
+        <summary>¿Cómo indico un horario que pasa de medianoche o dura varios días?</summary>
+<ul><li><strong>Franja nocturna</strong> (por ejemplo, abierto de 19:00 a 8:00 de la mañana siguiente): indica simplemente 19:00 → 08:00. La app entiende que se trata de una noche y muestra «Abierto» hasta las 8:00 del día siguiente.</li><li><strong>Apertura continua durante varios días</strong> (por ejemplo, del viernes por la tarde al lunes por la mañana sin interrupción): el viernes, 19:00 → 23:59; los días completamente cubiertos (sábado, domingo), 00:00 → 23:59, es decir, «abierto todo el día»; el lunes, de 00:00 hasta la hora real de cierre. Si vuelve a abrir más tarde ese día, añade una segunda franja con «Añadir una pausa».</li><li><strong>Abierto de noche y en días festivos</strong>: a la pregunta «¿Tu veterinario atiende urgencias por la noche y en días festivos?», responde «Sí». Así no necesitarás indicar un veterinario de guardia aparte.</li></ul>
+        <p>Este horario sirve para mostrar «Abierto» o «Cerrado» y el aviso «Tu veterinario parece estar cerrado». En caso de duda, llama directamente a la clínica.</p>
+      </details>
+      <details>
+        <summary>¿Funciona Gokozoo sin conexión a internet?</summary>
+        <p>Casi toda la app funciona sin conexión: tus datos se quedan en tu dispositivo. Solo se necesita conexión para el escáner de plantas, el escáner de códigos de barras de alimentos y la búsqueda de veterinarios cercanos.</p>
+      </details>
+      <details>
+        <summary>¿Se envían mis datos a algún sitio?</summary>
+        <p>Tus datos <strong>nunca se almacenan en nuestros servidores</strong>: Gokozoo no tiene, y no hay que crear ninguna cuenta. Se quedan en tu dispositivo. Si activas la sincronización entre tus dispositivos (Premium), se copian en <strong>tu propia cuenta de iCloud</strong>, gestionada por Apple, a la que no tenemos acceso. Todos los detalles están en la <a href="https://gokozooapp-png.github.io/gokozoo-legal/privacy.html">política de privacidad</a>.</p>
+      </details>
+      <details>
+        <summary>¿Cómo elimino los datos de un animal?</summary>
+        <p>Desde el panel del animal, el botón «Eliminar este animal» borra su ficha y toda su cartilla de salud. Desinstalar la app elimina los datos guardados en el dispositivo. Si la sincronización con iCloud está activada, queda una copia en tu iCloud: puedes eliminarla desde los ajustes de iCloud de tu iPhone.</p>
+      </details>
+      <details>
+        <summary>¿Gokozoo es de pago?</summary>
+        <p>La app es gratuita: puedes descargarla y usarla sin pagar. La cartilla de salud, las emergencias, los primeros auxilios, los recordatorios, la educación y los alimentos peligrosos están incluidos gratis, con 1 animal y 3 escaneos de plantas al mes.</p>
+        <p>Algunas funciones son de pago con <strong>Gokozoo Premium</strong>: animales ilimitados, cartilla de salud exportable en PDF, sincronización entre tus dispositivos, curvas de peso, En familia y escaneos de plantas ilimitados. Una parte de los beneficios se destina a asociaciones de protección animal.</p>
+      </details>
+      <details>
+        <summary>¿En qué idiomas está disponible la app?</summary>
+        <p>Francés, inglés, alemán, español y portugués (Portugal y Brasil). La app se adapta automáticamente al idioma de tu iPhone.</p>
+      </details>
+      <details>
+        <summary>He encontrado un error o tengo una idea, ¿cómo os lo cuento?</summary>
+        <p>Escribe a <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a> describiendo lo que te has encontrado, idealmente con una captura de pantalla. Cada mensaje se lee y se tiene en cuenta para las próximas actualizaciones.</p>
+      </details>
+    </div>
+  </div>
+  <div class="lang" lang="pt-PT" data-title="Apoio — Gokozoo" hidden>
+    <h1>Apoio — Gokozoo</h1>
+    <p class="subtitle">O companheiro de saúde dos seus gatos e cães</p>
+    <h2>Precisa de ajuda?</h2>
+    <div class="contact">
+      Contacte-nos diretamente por e-mail:<br>
+      <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a><br>
+      <span class="muted">Normalmente respondemos no prazo de 48 horas.</span>
+    </div>
+    <h2 class="faq-title">Perguntas frequentes</h2>
+    <div class="faq">
+      <details>
+        <summary>Como adiciono o perfil do meu gato ou do meu cão?</summary>
+        <p>Na primeira utilização da app, é convidado a criar o perfil do seu animal (nome, espécie, raça, data de nascimento). Depois, pode completar o boletim de saúde (peso, tratamentos, veterinário habitual) a qualquer momento e adicionar outros animais a partir do painel.</p>
+      </details>
+      <details>
+        <summary>O que fazer em caso de emergência com o meu animal?</summary>
+        <p>O botão vermelho «EMERGÊNCIA», sempre visível, abre fichas de primeiros socorros claras e detalhadas (queimadura, intoxicação, queda, paragem cardíaca…). Dá também acesso direto para ligar ao seu veterinário ou ao veterinário de urgência, encontrar o veterinário mais próximo ou obter o itinerário.</p>
+      </details>
+      <details>
+        <summary>Porque devo indicar o horário do meu veterinário e um veterinário de urgência?</summary>
+        <p>Uma emergência raramente acontece na altura certa: à noite, ao fim de semana, num feriado. Se o horário do seu veterinário estiver indicado, a Gokozoo mostra no ecrã de Emergência se está «Aberto» ou «Fechado». Quando parece fechado, a app sugere-lhe diretamente o seu veterinário de urgência, com o número e o itinerário.</p>
+        <p>Fazê-lo <strong>com antecedência</strong>, com calma, evita que tenha de procurar em pânico um veterinário aberto às 2 da manhã, quando cada minuto conta. Reserve hoje alguns minutos para registar o horário do seu veterinário e identificar o veterinário de urgência perto de si: no dia em que precisar, estará tudo pronto.</p>
+      </details>
+      <details>
+        <summary>Como indico um horário que passa da meia-noite ou dura vários dias?</summary>
+<ul><li><strong>Horário noturno</strong> (por exemplo, aberto das 19h00 às 8h00 da manhã seguinte): indique simplesmente 19:00 → 08:00. A app percebe que se trata de uma noite e mostra «Aberto» até às 8h00 do dia seguinte.</li><li><strong>Abertura contínua durante vários dias</strong> (por exemplo, de sexta à noite a segunda de manhã, sem interrupção): na sexta-feira, 19:00 → 23:59; nos dias totalmente cobertos (sábado, domingo), 00:00 → 23:59, ou seja, «aberto o dia todo»; na segunda-feira, das 00:00 até à hora real de fecho. Se reabrir mais tarde nesse dia, adicione um segundo horário com «Adicionar um intervalo».</li><li><strong>Aberto à noite e em feriados</strong>: à pergunta «O seu veterinário atende emergências à noite e em feriados?», responda «Sim». Assim, não precisa de indicar um veterinário de urgência à parte.</li></ul>
+        <p>Estes horários servem para mostrar «Aberto» ou «Fechado» e o aviso «O seu veterinário parece estar fechado». Em caso de dúvida, ligue diretamente para a clínica.</p>
+      </details>
+      <details>
+        <summary>A Gokozoo funciona sem ligação à internet?</summary>
+        <p>Quase toda a app funciona offline: os seus dados ficam no seu dispositivo. Só é necessária ligação para o scanner de plantas, o scanner de códigos de barras de alimentos e a pesquisa de veterinários nas proximidades.</p>
+      </details>
+      <details>
+        <summary>Os meus dados são enviados para algum lado?</summary>
+        <p>Os seus dados <strong>nunca são guardados nos nossos servidores</strong>: a Gokozoo não tem servidores, e não é preciso criar conta. Ficam no seu dispositivo. Se ativar a sincronização entre os seus dispositivos (Premium), são copiados para <strong>a sua própria conta iCloud</strong>, gerida pela Apple, à qual não temos acesso. Todos os detalhes estão na <a href="https://gokozooapp-png.github.io/gokozoo-legal/privacy.html">política de privacidade</a>.</p>
+      </details>
+      <details>
+        <summary>Como elimino os dados de um animal?</summary>
+        <p>No painel do animal, o botão «Eliminar este animal» apaga a ficha e todo o boletim de saúde. Desinstalar a app elimina os dados guardados no dispositivo. Se a sincronização com o iCloud estiver ativada, fica uma cópia no seu iCloud: pode eliminá-la nas definições do iCloud do seu iPhone.</p>
+      </details>
+      <details>
+        <summary>A Gokozoo é paga?</summary>
+        <p>A app é gratuita: pode descarregá-la e utilizá-la sem pagar. O boletim de saúde, as emergências, os primeiros socorros, os lembretes, a educação e os alimentos perigosos estão incluídos gratuitamente, com 1 animal e 3 análises de plantas por mês.</p>
+        <p>Algumas funções são pagas com o <strong>Gokozoo Premium</strong>: animais ilimitados, boletim de saúde exportável em PDF, sincronização entre os seus dispositivos, curvas de peso, partilha com a família e análises de plantas ilimitadas. Uma parte dos lucros destina-se a associações de proteção animal.</p>
+      </details>
+      <details>
+        <summary>Em que línguas está disponível a app?</summary>
+        <p>Francês, inglês, alemão, espanhol e português (Portugal e Brasil). A app adapta-se automaticamente à língua do seu iPhone.</p>
+      </details>
+      <details>
+        <summary>Encontrei um erro ou tenho uma ideia, como vos digo?</summary>
+        <p>Escreva para <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a> a descrever o que encontrou, idealmente com uma captura de ecrã. Cada mensagem é lida e tida em conta nas próximas atualizações.</p>
+      </details>
+    </div>
+  </div>
+  <div class="lang" lang="pt-BR" data-title="Suporte — Gokozoo" hidden>
+    <h1>Suporte — Gokozoo</h1>
+    <p class="subtitle">O companheiro de saúde dos seus gatos e cachorros</p>
+    <h2>Precisa de ajuda?</h2>
+    <div class="contact">
+      Fale com a gente diretamente por e-mail:<br>
+      <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a><br>
+      <span class="muted">Normalmente respondemos em até 48 horas.</span>
+    </div>
+    <h2 class="faq-title">Perguntas frequentes</h2>
+    <div class="faq">
+      <details>
+        <summary>Como adiciono o perfil do meu gato ou do meu cachorro?</summary>
+        <p>Ao abrir o app pela primeira vez, você é convidado a criar o perfil do seu animal (nome, espécie, raça, data de nascimento). Depois, você pode completar a carteira de saúde (peso, tratamentos, veterinário habitual) a qualquer momento e adicionar outros animais pelo painel.</p>
+      </details>
+      <details>
+        <summary>O que fazer em caso de emergência com o meu animal?</summary>
+        <p>O botão vermelho “EMERGÊNCIA”, sempre visível, abre fichas de primeiros socorros claras e detalhadas (queimadura, intoxicação, queda, parada cardíaca…). Ele também dá acesso direto para ligar para o seu veterinário ou para o veterinário de plantão, encontrar o veterinário mais próximo ou obter a rota.</p>
+      </details>
+      <details>
+        <summary>Por que informar o horário do meu veterinário e um veterinário de plantão?</summary>
+        <p>Uma emergência raramente acontece na hora certa: à noite, no fim de semana, num feriado. Se o horário do seu veterinário estiver preenchido, o Gokozoo mostra na tela de Emergência se ele está “Aberto” ou “Fechado”. Quando ele parece fechado, o app sugere diretamente o seu veterinário de plantão, com o telefone e a rota.</p>
+        <p>Fazer isso <strong>com antecedência</strong>, com calma, evita que você tenha que procurar em pânico um veterinário aberto às 2 da manhã, quando cada minuto conta. Reserve alguns minutos hoje para anotar o horário do seu veterinário e localizar o veterinário de plantão perto de você: no dia em que precisar, tudo já estará pronto.</p>
+      </details>
+      <details>
+        <summary>Como informo um horário que passa da meia-noite ou dura vários dias?</summary>
+<ul><li><strong>Horário noturno</strong> (por exemplo, aberto das 19h às 8h da manhã seguinte): informe simplesmente 19:00 → 08:00. O app entende que se trata de uma noite e mostra “Aberto” até as 8h do dia seguinte.</li><li><strong>Funcionamento contínuo por vários dias</strong> (por exemplo, de sexta à noite até segunda de manhã, sem interrupção): na sexta-feira, 19:00 → 23:59; nos dias totalmente cobertos (sábado, domingo), 00:00 → 23:59, ou seja, “aberto o dia todo”; na segunda-feira, das 00:00 até o horário real de fechamento. Se ele reabrir mais tarde nesse dia, adicione um segundo horário com “Adicionar um intervalo”.</li><li><strong>Aberto à noite e nos feriados</strong>: na pergunta “O seu veterinário atende emergências à noite e em feriados?”, responda “Sim”. Assim você não precisa informar um veterinário de plantão separado.</li></ul>
+        <p>Esses horários servem para mostrar “Aberto” ou “Fechado” e o aviso “Seu veterinário parece estar fechado”. Na dúvida, ligue diretamente para a clínica.</p>
+      </details>
+      <details>
+        <summary>O Gokozoo funciona sem internet?</summary>
+        <p>Quase todo o app funciona offline: seus dados ficam no seu aparelho. A conexão só é necessária para o scanner de plantas, o scanner de código de barras de alimentos e a busca de veterinários próximos.</p>
+      </details>
+      <details>
+        <summary>Meus dados são enviados para algum lugar?</summary>
+        <p>Seus dados <strong>nunca são armazenados nos nossos servidores</strong>: o Gokozoo não tem servidores, e não é preciso criar conta. Eles ficam no seu aparelho. Se você ativar a sincronização entre seus aparelhos (Premium), eles são copiados para <strong>a sua própria conta do iCloud</strong>, gerenciada pela Apple, à qual não temos acesso. Todos os detalhes estão na <a href="https://gokozooapp-png.github.io/gokozoo-legal/privacy.html">política de privacidade</a>.</p>
+      </details>
+      <details>
+        <summary>Como excluo os dados de um animal?</summary>
+        <p>No painel do animal, o botão “Excluir este animal” apaga a ficha e toda a carteira de saúde. Desinstalar o app exclui os dados guardados no aparelho. Se a sincronização com o iCloud estiver ativada, uma cópia fica no seu iCloud: você pode excluí-la nos ajustes do iCloud do seu iPhone.</p>
+      </details>
+      <details>
+        <summary>O Gokozoo é pago?</summary>
+        <p>O app é gratuito: você pode baixá-lo e usá-lo sem pagar. A carteira de saúde, as emergências, os primeiros socorros, os lembretes, a educação e os alimentos perigosos estão incluídos de graça, com 1 animal e 3 análises de plantas por mês.</p>
+        <p>Algumas funções são pagas com o <strong>Gokozoo Premium</strong>: animais ilimitados, carteira de saúde exportável em PDF, sincronização entre seus aparelhos, curvas de peso, Compartilhamento Familiar e análises de plantas ilimitadas. Uma parte dos lucros é destinada a associações de proteção animal.</p>
+      </details>
+      <details>
+        <summary>Em quais idiomas o app está disponível?</summary>
+        <p>Francês, inglês, alemão, espanhol e português (Portugal e Brasil). O app se adapta automaticamente ao idioma do seu iPhone.</p>
+      </details>
+      <details>
+        <summary>Encontrei um bug ou tenho uma ideia, como aviso vocês?</summary>
+        <p>Escreva para <a href="mailto:gokozoo.app@gmail.com">gokozoo.app@gmail.com</a> descrevendo o que você encontrou, de preferência com uma captura de tela. Cada mensagem é lida e levada em conta nas próximas atualizações.</p>
+      </details>
+    </div>
+  </div>
+<script>
+(function () {
+  var codes = ['fr', 'en', 'de', 'es', 'pt-PT', 'pt-BR'];
+  function pick() {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q && codes.indexOf(q) >= 0) return q;
+    var prefs = navigator.languages || [navigator.language || 'fr'];
+    for (var i = 0; i < prefs.length; i++) {
+      var p = (prefs[i] || '').toLowerCase();
+      if (p.indexOf('pt') === 0) return (p === 'pt-br' || p.indexOf('-br') > 0) ? 'pt-BR' : 'pt-PT';
+      var base = p.split('-')[0];
+      if (codes.indexOf(base) >= 0) return base;
+    }
+    return 'fr';
+  }
+  function show(code, scroll) {
+    document.querySelectorAll('.lang').forEach(function (b) {
+      var on = b.getAttribute('lang') === code;
+      b.hidden = !on;
+      var t = b.querySelector('.faq-title');
+      if (on) { t.id = 'faq'; document.title = b.getAttribute('data-title'); } else { t.removeAttribute('id'); }
+    });
+    document.documentElement.lang = code;
+    document.querySelectorAll('.langs button').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === code ? 'true' : 'false');
+    });
+    if (scroll && location.hash === '#faq') {
+      var el = document.getElementById('faq'); if (el) el.scrollIntoView();
+    }
+  }
+  document.querySelectorAll('.langs button').forEach(function (btn) {
+    btn.addEventListener('click', function () { show(btn.getAttribute('data-lang'), false); });
+  });
+  show(pick(), true);
+})();
+</script>
 </body>
 </html>
